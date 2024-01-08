@@ -25,4 +25,14 @@ public class Product
         if(this.Price <= 0)
             throw new ArgumentException("Price is required bigger than zero.");
     }
+
+    public void changeName(string newName){
+        this.Name = newName;
+        Validate();
+    }
+
+    public void changePrice(double newPrice){
+        this.Price = newPrice;
+        Validate();
+    }
 }

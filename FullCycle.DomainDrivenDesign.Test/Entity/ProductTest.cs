@@ -24,7 +24,6 @@ public class ProductTest
     {
         var actProduct = () => new Product(1, "Product 1", -1);
         var excpetion = Assert.ThrowsException<ArgumentException>(actProduct);
-
         Assert.AreEqual("Price is required bigger than zero.", excpetion.Message);
     }
     
