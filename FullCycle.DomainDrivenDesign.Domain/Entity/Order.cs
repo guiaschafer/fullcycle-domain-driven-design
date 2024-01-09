@@ -28,5 +28,5 @@ public class Order
 
     }
 
-    public decimal GetTotal() => this.Itens.Aggregate(0m, (value, next) => value + next.Price);
+    public decimal GetTotal() => this.Itens.Aggregate(0m, (value, next) => value + (next.Price * next.Quantity));
 }

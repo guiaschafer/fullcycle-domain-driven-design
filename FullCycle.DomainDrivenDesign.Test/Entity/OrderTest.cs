@@ -33,10 +33,36 @@ public class OrderTest
     {
         var order = new Order(1, 1, new OrderItem[]
         {
-            new OrderItem("1","item 1",10),
-            new OrderItem("2","item 2",30),
+            new OrderItem(1,"item 1",10, 1, 2),
+            new OrderItem(2,"item 2",30, 2, 2),
         });
 
-        Assert.AreEqual(40m, order.GetTotal());
+        Assert.AreEqual(80m, order.GetTotal());
+    }
+
+    [TestMethod]
+    public void CreateOrderWithPriceItemZeroShouldThrowError()
+    {
+        var act = () => new Order(1, 1, new OrderItem[]
+        {
+            new OrderItem(1,"item 1",0, 1, 1),
+            new OrderItem(2,"item 2",0, 2, 1),
+        });
+
+        var exception = Assert.ThrowsException<ArgumentException>(act);
+        Assert.AreEqual("Price should be greater than zero.", exception.Message);
+    }
+
+    [TestMethod]
+    public void CreateOrderWithQuantityItemZeroShouldThrowError()
+    {
+        var act = () => new Order(1, 1, new OrderItem[]
+        {
+            new OrderItem(1,"item 1",10, 1, 2),
+            new OrderItem(2,"item 2",10, 2, -1),
+        });
+
+        var exception = Assert.ThrowsException<ArgumentException>(act);
+        Assert.AreEqual("Quantity should be greater than zero.", exception.Message);
     }
 }
