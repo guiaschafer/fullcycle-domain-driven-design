@@ -1,4 +1,6 @@
 
+using System.Reflection.Metadata.Ecma335;
+
 namespace FullCycle.DomainDrivenDesign.Domain.Entity;
 
 public class Customer
@@ -6,6 +8,7 @@ public class Customer
     private int _id;
     private string _name;
     private bool _active;
+    public int RewardsPoints { private set; get; }
     private Address? _address;
 
     public Customer(int id, string name)
@@ -15,6 +18,8 @@ public class Customer
 
         Validate();
     }
+
+    public int Id => this._id;
     private void Validate()
     {
         if (this._id <= 0)
@@ -44,4 +49,6 @@ public class Customer
     public void setAddress(Address address) => _address = address;
 
     public bool isActive() => this._active;
+
+    public void addRewardsPoits(int points) => this.RewardsPoints += points;
 }

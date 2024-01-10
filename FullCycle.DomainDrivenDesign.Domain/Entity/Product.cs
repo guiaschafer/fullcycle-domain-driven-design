@@ -6,7 +6,7 @@ public class Product
 {
     private int Id;
     private string Name;
-    private double Price;
+    public double Price { private set; get; }
 
     public Product(int id, string name, double price)
     {
@@ -22,16 +22,18 @@ public class Product
             throw new ArgumentNullException("Id is required");
         if (String.IsNullOrEmpty(this.Name))
             throw new ArgumentNullException("Name is required");
-        if(this.Price <= 0)
+        if (this.Price <= 0)
             throw new ArgumentException("Price is required bigger than zero.");
     }
 
-    public void changeName(string newName){
+    public void changeName(string newName)
+    {
         this.Name = newName;
         Validate();
     }
 
-    public void changePrice(double newPrice){
+    public void changePrice(double newPrice)
+    {
         this.Price = newPrice;
         Validate();
     }
