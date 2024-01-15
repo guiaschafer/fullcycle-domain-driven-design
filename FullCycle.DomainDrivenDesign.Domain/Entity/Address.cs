@@ -6,7 +6,7 @@ public struct Address
     public string Number { private set; get; }
     public string Zip { private set; get; }
     public string City { private set; get; }
-    public Address(string street, string number, string zip, string city) : this()
+    public Address(string street, string number, string zip, string city)
     {
         Street = street;
         Number = number;

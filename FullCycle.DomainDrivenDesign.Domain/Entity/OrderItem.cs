@@ -3,13 +3,13 @@ namespace FullCycle.DomainDrivenDesign.Domain.Entity;
 
 public class OrderItem
 {
-    private int Id;
-    private int ProductId;
-    private string Name;
+    public string Id { private set; get; }
+    public string ProductId { private set; get; }
+    public string Name { private set; get; }
     public decimal Price { private set; get; }
     public int Quantity { private set; get; }
 
-    public OrderItem(int id, string name, decimal price, int productId, int quantity)
+    public OrderItem(string id, string name, decimal price, string productId, int quantity)
     {
         this.Id = id;
         this.Name = name;

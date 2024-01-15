@@ -5,26 +5,25 @@ namespace FullCycle.DomainDrivenDesign.Domain.Entity;
 
 public class Customer
 {
-    private int _id;
-    private string _name;
-    private bool _active;
+    public string Id { private set; get; }
+    public string Name { private set; get; }
+    public bool Active { private set; get; }
     public int RewardsPoints { private set; get; }
-    private Address? _address;
+    public Address? Address { private set; get; }
 
-    public Customer(int id, string name)
+    public Customer(string id, string name)
     {
-        _id = id;
-        _name = name;
+        Id = id;
+        Name = name;
 
         Validate();
     }
 
-    public int Id => this._id;
     private void Validate()
     {
-        if (this._id <= 0)
+        if (String.IsNullOrEmpty(this.Id))
             throw new ArgumentNullException($"Id is required");
-        if (String.IsNullOrEmpty(this._name))
+        if (String.IsNullOrEmpty(this.Name))
             throw new ArgumentNullException($"Name is required");
     }
 
@@ -33,22 +32,46 @@ public class Customer
         if (String.IsNullOrEmpty(name))
             throw new ArgumentNullException($"Name is required");
 
-        _name = name;
+        Name = name;
     }
 
     public void activate()
     {
-        if (_address == null)
+        if (Address == null)
             throw new ArgumentNullException($"Address is mandatory to activate a customer");
 
-        _active = true;
+        Active = true;
     }
 
-    public void deactivate() => _active = false;
+    public void deactivate() => Active = false;
 
-    public void setAddress(Address address) => _address = address;
+    public void setAddress(Address address) => Address = address;
 
-    public bool isActive() => this._active;
+    public bool isActive() => this.Active;
 
     public void addRewardsPoits(int points) => this.RewardsPoints += points;
+
+    // override object.Equals
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+        {
+            return false;
+        }
+
+        var customerType = (Customer)obj;
+
+        if(customerType.Id != this.Id)
+            return false;
+        
+        if(customerType.Name != this.Name)
+            return false;
+
+        if(!customerType.Address.Equals(this.Address))
+            return false;
+
+        return true;
+    }
+
+
 }

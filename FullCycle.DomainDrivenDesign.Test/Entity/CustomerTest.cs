@@ -8,21 +8,21 @@ public class CustomerTest
     [TestMethod]
     public void ValidateCreateCustomerShouldThrowErrorWhenIdIsEmpty()
     {
-        var act = () => new Customer(0, "Teste");
+        var act = () => new Customer("", "Teste");
         Assert.ThrowsException<ArgumentNullException>(act);
     }
 
     [TestMethod]
     public void ValidateCreateCustomerShouldThrowErrorWhenNameIsEmptyOrNull()
     {
-        var act = () => new Customer(1, "");
+        var act = () => new Customer("1", "");
         Assert.ThrowsException<ArgumentNullException>(act);
     }
 
     [TestMethod]
     public void ValidateChangeShouldThrowErrorWhenNameIsEmptyOrNull()
     {
-        var customer = new Customer(1, "Name");
+        var customer = new Customer("1", "Name");
         var act = () => customer.changeName("");
         Assert.ThrowsException<ArgumentNullException>(act);
     }
@@ -30,7 +30,7 @@ public class CustomerTest
     [TestMethod]
     public void ActivateCustomerShouldActivateCorrectly()
     {
-        var customer = new Customer(1, "Name");
+        var customer = new Customer("1", "Name");
         var address = new Address("Rua", "Número", "zip", "city");
 
         customer.setAddress(address);
@@ -43,7 +43,7 @@ public class CustomerTest
     [TestMethod]
     public void ActivateCustomerWithoutAddressShouldThrowError()
     {
-        var customer = new Customer(1, "Name");
+        var customer = new Customer("1", "Name");
         var act = () => customer.activate();
 
         Assert.ThrowsException<ArgumentNullException>(act);
@@ -53,7 +53,7 @@ public class CustomerTest
     [TestMethod]
     public void DeactivateCustomerShouldDeactivateCorrectly()
     {
-        var customer = new Customer(1, "Name");
+        var customer = new Customer("1", "Name");
         var address = new Address("Rua", "Número", "zip", "city");
 
         customer.setAddress(address);

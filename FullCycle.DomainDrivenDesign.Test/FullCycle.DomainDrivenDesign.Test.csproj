@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FullCycle.DomainDrivenDesign.Domain\FullCycle.DomainDrivenDesign.Domain.csproj" />
+    <ProjectReference Include="..\FullCycle.DomainDrivenDesign.Infra\FullCycle.DomainDrivenDesign.Infra.csproj" />
   </ItemGroup>
 
 </Project>

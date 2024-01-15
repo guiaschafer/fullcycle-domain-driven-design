@@ -4,11 +4,11 @@ namespace FullCycle.DomainDrivenDesign.Domain.Entity;
 
 public class Product
 {
-    private int Id;
-    private string Name;
+    public string Id { private set; get; }
+    public string Name { private set; get; }
     public double Price { private set; get; }
 
-    public Product(int id, string name, double price)
+    public Product(string id, string name, double price)
     {
         Id = id;
         Name = name;
@@ -18,7 +18,7 @@ public class Product
 
     private void Validate()
     {
-        if (this.Id <= 0)
+        if (String.IsNullOrEmpty(this.Id))
             throw new ArgumentNullException("Id is required");
         if (String.IsNullOrEmpty(this.Name))
             throw new ArgumentNullException("Name is required");
@@ -36,5 +36,33 @@ public class Product
     {
         this.Price = newPrice;
         Validate();
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+        {
+            return false;
+        }
+
+        var productTyped = (Product)obj;
+        if (productTyped.Id != this.Id)
+            return false;
+
+        if (productTyped.Name != this.Name)
+            return false;
+
+        if (productTyped.Price != this.Price)
+            return false;
+
+        return true;
+    }
+
+    // override object.GetHashCode
+    public override int GetHashCode()
+    {
+        // TODO: write your implementation of GetHashCode() here
+        throw new System.NotImplementedException();
+        return base.GetHashCode();
     }
 }

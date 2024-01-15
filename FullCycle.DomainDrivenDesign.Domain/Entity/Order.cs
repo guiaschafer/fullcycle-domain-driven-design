@@ -3,12 +3,12 @@ namespace FullCycle.DomainDrivenDesign.Domain.Entity;
 
 public class Order
 {
-    private int Id;
-    private int CustomerId;
-    private decimal Total;
-    private OrderItem[] Itens;
+    public string Id {private set; get;}
+    public string CustomerId  {private set; get;}
+    public decimal Total  {private set; get;}
+    public OrderItem[] Itens  {private set; get;}
 
-    public Order(int id, int customerId, OrderItem[] itens)
+    public Order(string id, string customerId, OrderItem[] itens)
     {
         this.Id = id;
         this.CustomerId = customerId;
@@ -19,9 +19,9 @@ public class Order
 
     private void Validate()
     {
-        if (this.Id <= 0)
+        if (String.IsNullOrEmpty(this.Id))
             throw new ArgumentNullException("Id is required");
-        if (this.CustomerId <= 0)
+        if (String.IsNullOrEmpty(this.CustomerId))
             throw new ArgumentNullException("CustomerId is required");
         if (this.Itens == null || !this.Itens.Any())
             throw new ArgumentNullException("Itens is required");

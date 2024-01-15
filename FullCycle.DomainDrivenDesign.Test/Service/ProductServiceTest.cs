@@ -9,9 +9,9 @@ public class ProductServiceTest
     [TestMethod]
     public void ChangePriceAllProducts()
     {
-        var product1 = new Product(1, "product1", 10);
-        var product2 = new Product(2, "product2", 20);
-        var product3 = new Product(3, "product3", 30);
+        var product1 = new Product("1", "product1", 10);
+        var product2 = new Product("2", "product2", 20);
+        var product3 = new Product("3", "product3", 30);
 
         var products = new Product[] { product1, product2, product3 };
 
