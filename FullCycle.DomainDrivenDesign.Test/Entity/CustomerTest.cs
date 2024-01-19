@@ -1,4 +1,6 @@
-using FullCycle.DomainDrivenDesign.Domain.Entity;
+
+using FullCycle.DomainDrivenDesign.Domain.Customers.Entity;
+using FullCycle.DomainDrivenDesign.Domain.Customers.ValueObject;
 
 namespace FullCycle.DomainDrivenDesign.Test.Entity;
 

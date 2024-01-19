@@ -1,5 +1,6 @@
-using FullCycle.DomainDrivenDesign.Domain.Entity;
-using FullCycle.DomainDrivenDesign.Domain.Service;
+
+using FullCycle.DomainDrivenDesign.Domain.Products.Entity;
+using FullCycle.DomainDrivenDesign.Domain.Products.Service;
 
 namespace FullCycle.DomainDrivenDesign.Test.Service;
 

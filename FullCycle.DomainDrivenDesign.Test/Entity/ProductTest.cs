@@ -1,4 +1,4 @@
-using FullCycle.DomainDrivenDesign.Domain.Entity;
+using FullCycle.DomainDrivenDesign.Domain.Products.Entity;
 
 namespace FullCycle.DomainDrivenDesign.Test.Entity;
 

@@ -1,6 +1,7 @@
-using FullCycle.DomainDrivenDesign.Domain.Event;
-using FullCycle.DomainDrivenDesign.Domain.Event.Dto;
-using FullCycle.DomainDrivenDesign.Domain.Event.Handler;
+using FullCycle.DomainDrivenDesign.Domain.Products.Event;
+using FullCycle.DomainDrivenDesign.Domain.Products.Event.Dto;
+using FullCycle.DomainDrivenDesign.Domain.Products.Event.Handler;
+using FullCycle.DomainDrivenDesign.Domain.Shared.Event;
 using Moq;
 
 namespace FullCycle.DomainDrivenDesign.Test.Event.Shared;

@@ -1,5 +1,8 @@
-using FullCycle.DomainDrivenDesign.Domain.Entity;
-using FullCycle.DomainDrivenDesign.Domain.Service;
+
+
+using FullCycle.DomainDrivenDesign.Domain.Checkout.Entity;
+using FullCycle.DomainDrivenDesign.Domain.Checkout.Service;
+using FullCycle.DomainDrivenDesign.Domain.Customers.Entity;
 
 namespace FullCycle.DomainDrivenDesign.Test.Service;
 

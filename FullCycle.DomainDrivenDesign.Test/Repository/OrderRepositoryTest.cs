@@ -1,7 +1,12 @@
 using System.Data;
-using FullCycle.DomainDrivenDesign.Domain.Entity;
-using FullCycle.DomainDrivenDesign.Infra.Database;
-using FullCycle.DomainDrivenDesign.Infra.Repository;
+using FullCycle.DomainDrivenDesign.Domain.Checkout.Entity;
+using FullCycle.DomainDrivenDesign.Domain.Customers.Entity;
+using FullCycle.DomainDrivenDesign.Domain.Customers.ValueObject;
+using FullCycle.DomainDrivenDesign.Domain.Products.Entity;
+using FullCycle.DomainDrivenDesign.Infra.Checkout.Repository.EntityFrameworkCore;
+using FullCycle.DomainDrivenDesign.Infra.Customers.Repository.EntityFrameworkCore;
+using FullCycle.DomainDrivenDesign.Infra.Products.Repository.EntityFrameworkCore;
+using FullCycle.DomainDrivenDesign.Infra.Shared.Database.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace FullCycle.DomainDrivenDesign.Test.Repository;
