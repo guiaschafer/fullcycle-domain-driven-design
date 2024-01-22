@@ -2,17 +2,24 @@
 
 namespace FullCycle.DomainDrivenDesign.Domain.Products.Entity;
 
-public class Product : IProduct
+public class ProductB : IProduct
 {
     public string Id { private set; get; }
     public string Name { private set; get; }
-    public double Price { private set; get; }
+    private double _price;
+    public double Price
+    {
+        get
+        {
+            return this._price * 2;
+        }
+    }
 
-    public Product(string id, string name, double price)
+    public ProductB(string id, string name, double price)
     {
         Id = id;
         Name = name;
-        Price = price;
+        _price = price;
         Validate();
     }
 
@@ -34,7 +41,7 @@ public class Product : IProduct
 
     public void changePrice(double newPrice)
     {
-        this.Price = newPrice;
+        this._price = newPrice;
         Validate();
     }
 
